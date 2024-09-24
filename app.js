@@ -82,7 +82,10 @@ document.addEventListener("DOMContentLoaded", function(){
             console.error("Error fetching user details:", error);
         }
         finally{
-            searchBtn.textContent ="Generate";
+            // searchBtn.textContent ="Generate";
+            searchBtn.innerHTML=`<span>Generate</span><span class="material-symbols-outlined">
+                    query_stats
+                    </span>`
             searchBtn.disabled = false;
             usernameInput.value="";
         }
@@ -90,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     searchBtn.addEventListener("click", ()=>{
         const username = usernameInput.value;
-        name.textContent =`Hii! ${username}`;
+        name.textContent =`Welcome! ${username}`;
         // console.log(username);
 
         if(validateUsername(username)){
@@ -102,6 +105,20 @@ document.addEventListener("DOMContentLoaded", function(){
 
         progressClass.style.display="none";
         cardStatsContainer.style.display="none";
+    });
+
+    function toggleAnimation(element) {
+        const currentState = window.getComputedStyle(element).animationPlayState;
+        
+        if (currentState === 'running') {
+            element.style.animationPlayState = 'paused';
+        } else {
+            element.style.animationPlayState = 'running';
+        }
+    }
+
+    name.addEventListener("click", function() {
+        toggleAnimation(name); // Now the correct element is passed
     });
 })
 
