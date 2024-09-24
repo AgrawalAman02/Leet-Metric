@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    /* width: 100vw; */
+    height: 100vh;
+    /* padding: 2% 10%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(111, 111, 111);
+}
+
+.container{
+    width: 65%;
+    max-width: 1000px;
+    /* height: 80%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-around; */
+
+    padding: 2rem;
+    row-gap: 1.7rem;
+
+    /* border: 2px solid black; */
+    border-radius: 15px;
+    background-color: rgb(245, 252, 142) ;
+}
+
+h1{
+    font-size: 3rem;
+}
+
+.user-container{
+    display: flex;
+    flex-direction: column;
+    row-gap: .6rem;
+    
+}
+
+.user-input-container{
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+    
+}
+
+#user-input{
+    width: 20rem;
+    min-width: 100%;
+    padding: 0.2rem;
+    border-radius: 5px;
+    text-decoration: double;
+    cursor:text;
+}
+
+#search-btn{
+    width: 10rem;
+    padding: .1rem;
+    border-radius: 5px;
+    background-color: rgb(111, 111, 111);
+    color: white;
+    box-shadow: 0px 0px 5px rgb(111, 111, 111);
+    cursor: pointer;
+}
+
+/* .stats-container{
+    width: 400px;
+    background-color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+.circle{
+    border: 4px solid rgb(73, 229, 73);
+    border-radius: 50%;
+    width: 100px;
+    min-width: 100px;  /* Ensure minimum width to prevent shrinking */
+    height: 100px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:medium;
+    font-weight: 700;
+    color: rgb(20, 19, 19);
+    flex-direction: column; /* Ensure contents stack vertically */
+    background: conic-gradient(rgb(73, 229, 73) var(--progress-degree, 0%),rgba(35, 123, 35, 0.732) 0%);
+
+}
+
+
+
+.circle span{
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.progress{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    gap: 20px;
+    flex-wrap: wrap;
+    display: none;
+}
+
+.name{
+    display: none;
+    margin-bottom: 10px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: italic;
+}
