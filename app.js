@@ -80,6 +80,10 @@ document.addEventListener("DOMContentLoaded", function(){
             fetchUserDetails(username);
         }
     })
-    
+    usernameInput.addEventListener("click",()=>{
+        name.style.display="none" ;
+
+        progressClass.style.display="none";
+    });
 })
 
