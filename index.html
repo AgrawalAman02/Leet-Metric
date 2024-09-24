@@ -11,11 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Protest+Guerrilla&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&family=Lekton:ital,wght@0,400;0,700;1,400&family=Permanent+Marker&family=Protest+Guerrilla&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&family=Lekton:ital,wght@0,400;0,700;1,400&family=Permanent+Marker&family=Protest+Guerrilla&family=Silkscreen:wght@400;700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- for the icon -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0" />
 </head>
 <body>
 
     <div class="container">
+        <!-- made the div to add irregular shape -->
         <div class="irregular-shape">
             <h1>Leet-Metric</h1>
         </div>
@@ -25,14 +27,16 @@
             <p>Enter Your Username below:</p>
             <div class="user-input-container">
                 <input type="text" placeholder="Please enter your username" id="user-input">
-                <button id="search-btn"><span>Generate</span><span class="material-symbols-outlined">
+                <!-- added the icon -->
+                <button id="search-btn"><span>Generate</span><span class="material-symbols-outlined">   
                     query_stats
                     </span></button>
             </div>
         </div>
 
         <div class="stats-container">
-            <div class="name"></div>
+            <!-- populated by JS to show the username -->
+            <div class="name"></div>  
 
             <div class="progress">
 

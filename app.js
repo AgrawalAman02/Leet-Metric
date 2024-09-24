@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function(){
         return isMatching;
     }
 
+    // to display the information on cards
     function displayCards(data){
         totalSolved.textContent = `Total Problems Solved : ${data.totalSolved}`;
         ranking.textContent = `Ranking : ${data.ranking}`;
@@ -82,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function(){
             console.error("Error fetching user details:", error);
         }
         finally{
-            // searchBtn.textContent ="Generate";
+            // finally make everything normal
             searchBtn.innerHTML=`<span>Generate</span><span class="material-symbols-outlined">
                     query_stats
                     </span>`
@@ -100,6 +101,8 @@ document.addEventListener("DOMContentLoaded", function(){
             fetchUserDetails(username);
         }
     })
+
+    // on clicking the userinput field all the details got hidded
     usernameInput.addEventListener("click",()=>{
         name.style.display="none" ;
 
@@ -107,6 +110,7 @@ document.addEventListener("DOMContentLoaded", function(){
         cardStatsContainer.style.display="none";
     });
 
+    // to resume and play the toggle animation
     function toggleAnimation(element) {
         const currentState = window.getComputedStyle(element).animationPlayState;
         
