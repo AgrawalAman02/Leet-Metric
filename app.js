@@ -1,16 +1,21 @@
 document.addEventListener("DOMContentLoaded", function(){
     const searchBtn = document.getElementById("search-btn");
     const usernameInput = document.getElementById("user-input");
-    const statsContainer = document.querySelector(".stats-container");
     const easyProgressCircle = document.querySelector(".easy-progress");
     const mediumProgressCircle = document.querySelector(".medium-progress");
     const hardProgressCircle = document.querySelector(".hard-progress");
     const easyLabel = document.getElementById("easy-label");
     const mediumLabel = document.getElementById("medium-label");
     const hardLabel = document.getElementById("hard-label");
-    const cardStatsContainer = document.querySelector(".stats-cards");
+    const cardStatsContainer = document.querySelector(".stats-card");
     const progressClass = document.querySelector(".progress");
     const name  = document.querySelector(".name");
+    const totalSolved = document.querySelector(".totalSolved");
+    const ranking = document.querySelector(".ranking");
+    const contribution = document.querySelector(".contribution");
+    const reputation = document.querySelector(".reputation");
+    
+    
 
     //return true or false based on regex
     function validateUsername(username){
@@ -22,6 +27,16 @@ document.addEventListener("DOMContentLoaded", function(){
         const isMatching = regex.test(username);
         if(!isMatching) alert("Invalid username");
         return isMatching;
+    }
+
+    function displayCards(data){
+        totalSolved.textContent = `Total Problems Solved : ${data.totalSolved}`;
+        ranking.textContent = `Ranking : ${data.ranking}`;
+        contribution.textContent = `Contribution Points : ${data.contributionPoints}`
+        reputation.textContent =`Reputation : ${data.reputation}`;
+
+        cardStatsContainer.style.display="flex";
+
     }
 
     function displayUserData(data){
@@ -49,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function(){
     async function fetchUserDetails(username) {
         const url = `https://leetcode-stats-api.herokuapp.com/${username}`;
         try{
-            searchBtn.textContent ="Searching...";
+            searchBtn.textContent ="Generating...";
             searchBtn.disabled = true;
 
             const response = await fetch(url);
@@ -59,13 +74,15 @@ document.addEventListener("DOMContentLoaded", function(){
             const data = await response.json();
             console.log("user datails : ", data);
             displayUserData(data);
+            displayCards(data);
+            
 
         }
         catch(error){
             console.error("Error fetching user details:", error);
         }
         finally{
-            searchBtn.textContent ="Search";
+            searchBtn.textContent ="Generate";
             searchBtn.disabled = false;
             usernameInput.value="";
         }
@@ -84,6 +101,7 @@ document.addEventListener("DOMContentLoaded", function(){
         name.style.display="none" ;
 
         progressClass.style.display="none";
+        cardStatsContainer.style.display="none";
     });
 })
 
